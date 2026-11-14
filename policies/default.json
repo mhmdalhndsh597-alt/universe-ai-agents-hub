@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "execution_mode": "disabled",
+  "human_approval_required": true,
+  "allowed_capabilities": [
+    "read_public_data",
+    "read_repository_metadata",
+    "draft_text",
+    "propose_patch"
+  ],
+  "denied_actions": [
+    "execute_shell",
+    "read_secrets",
+    "write_secrets",
+    "sign_transaction",
+    "submit_transaction",
+    "transfer_funds",
+    "merge_pull_request",
+    "delete_repository",
+    "deploy_production"
+  ]
+}

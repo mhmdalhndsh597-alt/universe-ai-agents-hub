@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Mohamed-Engineering/universe-ai-agents-hub/blob/main/schemas/agent.schema.json",
+  "title": "Universe AI Agent Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "description",
+    "enabled",
+    "permissions",
+    "requires_human_approval"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,62}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 1000
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "permissions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "read_public_data",
+          "read_repository_metadata",
+          "draft_text",
+          "propose_patch"
+        ]
+      }
+    },
+    "requires_human_approval": {
+      "type": "boolean",
+      "const": true
+    }
+  }
+}
