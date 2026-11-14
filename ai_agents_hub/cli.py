@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import sys
 
-from .registry import load_json, validate_policy, validate_registry
+from .registry import load_json, validate_configuration
 
 
 def main() -> int:
@@ -27,12 +27,12 @@ def main() -> int:
         print(f"Validation failed: {exc}", file=sys.stderr)
         return 1
 
-    errors = validate_registry(registry) + validate_policy(policy)
+    errors = validate_configuration(registry, policy)
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)
         return 1
 
-    print("Validation passed: registry and policy are structurally sound.")
-    print("Agent execution remains disabled; no network calls were made.")
+    print("Validation passed: registry, policy, and cross-file permissions are consistent.")
+    print(f"Execution mode: {policy['execution_mode']}; no network calls were made.")
     return 0
