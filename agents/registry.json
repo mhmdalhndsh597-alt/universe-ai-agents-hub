@@ -1,0 +1,5 @@
+{
+  "$schema": "../schemas/agent.schema.json",
+  "schema_version": "1.0",
+  "agents": []
+}

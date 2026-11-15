@@ -1,120 +1,162 @@
-<div align="center">
+# 🌌 مركز الكون لوكلاء الـ AI (Universe Center for AI Agents)
 
-# 🌌 مركز الكون لوكلاء الـ AI
-### Universe Center for AI Agents
+<p align="center">
+  <strong>منصة عامة قيد البناء لتجميع وكلاء الذكاء الاصطناعي، وتسهيل اكتشافهم وتشغيلهم وربطهم بالتطبيقات.</strong>
+</p>
 
-**مركز مفتوح وقابل للتوسّع لتنظيم وكلاء الذكاء الاصطناعي وتطويرهم — مع توضيح ما هو منفّذ وما يزال ضمن خطة التطوير.**
+<p align="center">
+  <img alt="Python 3.12+" src="https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white">
+  <img alt="FastAPI" src="https://img.shields.io/badge/API-FastAPI-009688?logo=fastapi&logoColor=white">
+  <img alt="Streamlit" src="https://img.shields.io/badge/Dashboard-Streamlit-FF4B4B?logo=streamlit&logoColor=white">
+  <img alt="Security-first" src="https://img.shields.io/badge/Security-fail--closed-2E7D32?logo=github">
+  <img alt="Status" src="https://img.shields.io/badge/Status-Active%20Development-orange">
+</p>
 
-[أقسام الوكلاء](#-أقسام-الوكلاء-agents-categories) • [البدء السريع](#-البدء-السريع) • [المساهمة](#-كيف-تساهم-في-المشروع-contributing) • [خارطة الطريق](#-خارطة-الطريق-roadmap)
-
-</div>
+**الحالة / Status:** تطوير نشط — النسخة العامة قيد الإعداد، والنسخة الخاصة الحالية مرحلية. الخصائص أدناه ضمن نطاق البناء، وليست ادعاءً بأن كل تكامل أو تشغيل إنتاجي متاح الآن. لا تُخزّن مفاتيح أو أسرار في Git، والتنفيذ الخارجي معطّل افتراضيًا. لم يُعتمد ترخيص بعد؛ الإتاحة العامة للاطلاع لا تمنح تلقائيًا حقوق إعادة الاستخدام أو إعادة التوزيع.
 
 ---
 
-## 🚀 عن المشروع | About
+## العربية
 
-يهدف **مركز الكون لوكلاء الـ AI** إلى توفير بنية Python منظمة وقابلة للتوسّع لبناء وكلاء الذكاء الاصطناعي، مع واجهة Streamlit تفاعلية وواجهة سطر أوامر وواجهة FastAPI اختيارية. يتضمن هذا الإصدار وكلاء للبرمجة والبحث وتخطيط الأتمتة وصناعة المحتوى، ونظام ذاكرة محليًا اختياريًا.
+### الرؤية
 
-> **شفافية النطاق:** وضع Demo يعمل دون مفاتيح ويعرض أمثلة توضيحية، لا نتائج نموذج موثقة. وكيل البحث لا يتصفح الويب؛ يلخص المادة التي تقدمها ويقترح أسئلة. وكيل الأتمتة يصمم خطة ولا ينفذ إجراءات خارجية. الذاكرة المحلية اختيارية وتُفعّل يدويًا في الواجهة؛ خزّن البيانات غير الحساسة فقط. تكامل WhatsApp وTelegram والبريد وCRM غير مفعّل. كل ناتج مسودة تتطلب مراجعة بشرية.
+يهدف **مركز الكون لوكلاء الـAI** إلى بناء منصة عامة تجمع وكلاء الذكاء الاصطناعي في مكان واحد، وتساعد المطورين على اكتشافهم وتقييمهم وربطهم بأمان. سيُختار ترخيص مفتوح مناسب قبل دعوة المجتمع لإعادة الاستخدام أو إعادة التوزيع. تشمل فئات المنصة المستهدفة البرمجة، والبحث، والأتمتة، وصناعة المحتوى، والأنظمة متعددة الوكلاء.
 
-## 🤖 أقسام الوكلاء | Agents Categories
+### المميزات الرئيسية (Key Features)
 
-| القسم | نطاقه المقترح | أمثلة مستقبلية غير منفذة بعد |
-|---|---|---|
-| `agents/coding/` | صياغة الكود ومراجعته | وكيل كتابة الكود ومراجع الكود (منفذان)؛ BugHunter وRepoBuilder مستقبليان |
-| `agents/research/` | تفكيك الموضوع إلى أسئلة وتلخيص مصادر المستخدم | `DeepResearcherAgent` |
-| `agents/automation/` | تحويل الوصف إلى خطة workflow قابلة للتنفيذ | `WorkflowAutomatorAgent`؛ لا ينفذها |
-| `agents/content_creation/` | خطة محتوى ومنشورات تقنية للمطورين | `ContentArchitectAgent` |
-| `agents/multi_agent_systems/` | تنسيق تعاون عدة وكلاء | نظام تعاون منفذ للكتابة ثم مراجعة الكود بجولات إصلاح محدودة |
+- **تعدد النماذج:** تصميم موحد للتبديل بين Google Gemini وOpenAI وAnthropic Claude ونماذج Ollama المحلية المجانية. عند غياب بيانات الاعتماد، يكون وضع العرض التجريبي هو الافتراضي؛ لا تُضمّن المفاتيح في الشيفرة.
+- **أدوات عملية بضوابط واضحة:** بحث الويب، وتحليل الملفات النصية والبرمجية وPDF، وتنفيذ Python داخل Docker rootless معزول فقط، وقراءة Issues وPull Requests من GitHub. الأدوات غير مفعّلة افتراضيًا، والمنفذ يرفض التنفيذ إذا لم تتوفر بيئة العزل المطلوبة.
+- **واجهة API موحدة:** FastAPI مع توثيق Swagger UI تلقائي على `/docs` لربط التطبيقات الخارجية، مع حماية نقاط التشغيل بمفتاح API عند استخدام مزود أو أداة.
+- **لوحة تحكم تفاعلية:** واجهة Streamlit لاكتشاف الوكلاء والبحث والتصفية واختيار المزود والأدوات وتوليد أمثلة Python وcURL.
+- **حوكمة وأمان:** أقل صلاحية، موافقة بشرية على التغييرات، حفظ مفاتيح الخدمات في GitHub Secrets أو متغيرات البيئة المحمية، وفحوص آلية قبل الدمج.
 
-تدعم الوكلاء الثلاثة الجديدة مزودي OpenAI وGemini عبر `LLM_PROVIDER=auto|openai|gemini|demo`. عند غياب المفاتيح يعمل Demo تلقائيًا. لا ينفذ نظام مراجعة الكود الشيفرة أو يحفظها؛ وموافقة المراجع الآلي لا تغني عن مراجعة بشرية.
+### اقتصاد المطورين وتقاسم الأرباح (Developer Marketplace & 80/20 Revenue Share)
 
-## ⚡ البدء السريع
+نستهدف سوقًا يسمح للمطورين بتقديم وكلائهم للمراجعة والنشر، مع **نموذج تقاسم مقترح** يخصص 80% من عوائد الاستخدام المنسوبة إلى الوكيل للمطور و20% للمنصة. تفاصيل الأهلية والقياس والتسوية موضحة في [مسودة اتفاقية المطورين](DEVELOPER_AGREEMENT.md).
 
-يتطلب Python 3.10 أو أحدث:
+> **تنويه مهم:** نسبة 80/20 سياسة مقترحة للمراجعة وليست حاليًا وعدًا بالدفع أو خدمة تسوية مفعّلة. لا توجد في هذه النسخة منظومة مكتملة لقياس الاستخدام أو الفوترة أو تحويل الأرباح. لن يصبح البرنامج نافذًا إلا بعد اعتماد الاتفاقية وتفعيل نظام القياس والتحصيل وإجراءات الامتثال ذات الصلة.
+
+### البدء السريع (Quick Start)
+
+يتطلب Python 3.12 أو أحدث. أنشئ بيئة افتراضية ثم ثبّت المتطلبات:
 
 ```bash
+git clone https://github.com/mhmdalhndsh597-alt/universe-ai-agents-hub.git
+cd universe-ai-agents-hub
 python -m venv .venv
-# Linux/macOS
+# Linux/macOS:
 source .venv/bin/activate
-# Windows PowerShell: .venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-cp .env.example .env
+# Windows PowerShell:
+# .venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
-يمكن إضافة `OPENAI_API_KEY` أو `GEMINI_API_KEY` إلى `.env` محليًا؛ عند غياب كليهما تعمل الوكلاء الثلاثة الجديدة في وضع Demo. اختر المزود عبر `LLM_PROVIDER` عند الحاجة. لتشغيل FastAPI، أنشئ `HUB_API_KEY` قويًا محليًا، مثل:
+انسخ `.env.example` إلى `.env` عند الحاجة، وأضف مفاتيحك محليًا أو في GitHub Secrets فقط. لا ترفع `.env` إلى Git. ابدأ خادم API والواجهة في نافذتين منفصلتين:
 
 ```bash
-python -c "import secrets; print(secrets.token_urlsafe(32))"
+uvicorn api:app --host 127.0.0.1 --port 8000
 ```
-
-لا ترفع `.env` أو المفاتيح السرية إلى Git. استخدم CLI:
-
-```bash
-python main.py --help
-python main.py support --message "ما تفاصيل الخدمة؟" --context "السعر يحدد بعد المعاينة"
-python main.py summarize --text "النص المراد تلخيصه" --max-words 120 --language Arabic
-python main.py draft --brief "إعلان عن خدمة" --format social_post --language Arabic
-```
-
-لتشغيل الواجهة محليًا: `python main.py serve`. افتراضيًا تستمع إلى `127.0.0.1`؛ وتتوفر وثائق API عادة على `http://127.0.0.1:8000/docs`. مسارات العمل محمية بمفتاح Bearer. لا تعرض الخدمة للإنترنت دون TLS ومحدد معدل طلبات ومراجعة أمنية ومصادقة ملائمة.
-
-شغّل واجهة الويب التفاعلية محليًا:
 
 ```bash
 streamlit run app.py
 ```
 
-تعرض الواجهة حالات التنفيذ العامة فقط، ولا تكشف التفكير الداخلي للنموذج. من الشريط الجانبي يمكن تفعيل الذاكرة المحلية يدويًا؛ حينها تحفظ المهمة والنتيجة في `.data/agent_memory.json` وتسترجع سجلات متقاربة نصيًا. هذا التخزين محلي وغير مشفر، ومستبعد من Git؛ لا تحفظ معلومات حساسة.
+بعد التشغيل، افتح لوحة Streamlit محليًا، وتوثيق API التفاعلي على `http://127.0.0.1:8000/docs`. إذا لم تُضبط مفاتيح مزود النماذج، استخدم Demo Mode. لا تعرّض الخادم للإنترنت مباشرة قبل ضبط `HUB_API_KEY` ومراجعة إعدادات النشر والحماية.
 
-## 🧱 بنية المشروع
+### المساهمة في المشروع (Contributing)
 
-```text
-agents/                  الوكلاء وتصنيفات المجالات
-  coding/                وكيل كتابة الكود ومراجع الكود
-  research/              وكيل تفكيك الموضوع وتلخيص المصادر المقدمة
-  automation/            وكيل تخطيط workflow دون التنفيذ
-  content_creation/      وكيل هندسة المحتوى التقني
-  multi_agent_systems/   منسق التعاون بين كاتب الكود ومراجعه
-core/                    موائم OpenAI/Gemini ومدير ذاكرة JSON محلي
-app.py                   واجهة Streamlit التفاعلية
-config/                  إعدادات البيئة
-api.py                   واجهة FastAPI والتحقق والمصادقة
-main.py                  CLI وتشغيل الخدمة
-templates/               قالب إضافة وكيل
-docs/                    وثائق المشروع
- tests/                  اختبارات تستخدم مكونات وهمية
-```
+نرحب بمساهمات مطوري العالم في الشيفرة والتوثيق والاختبارات. ابدأ بقراءة [دليل المساهمة](CONTRIBUTING.md)، وافتح Issue أو Pull Request موضحًا نطاق التغيير واختباراته. تُراجع التغييرات قبل دمجها، ولا تُشارك الأسرار أو بيانات الاعتماد في Issues أو Pull Requests.
 
-راجع [دليل البنية](docs/ARCHITECTURE.md) و[دليل المساهمة](CONTRIBUTING.md). قالب الوكيل متاح في `templates/agent_skeleton.py`، وقوالب Issues وPull Requests الثنائية اللغة في `.github/`.
+### الأمان
 
-## 🧪 الاختبارات والجودة
-
-```bash
-python -m pip install -r requirements-dev.txt
-ruff check .
-python -m compileall -q app.py main.py api.py agents config core tests templates
-pytest -q
-```
-
-تستخدم اختبارات الوحدة عملاء وهميين ولا تتطلب مفتاحًا أو اتصالًا بمزود خارجي.
-
-## 🤝 كيف تساهم في المشروع | Contributing
-
-نرحب بالمساهمات. أنشئ فرعًا للتغيير، وضع الوكيل في التصنيف المناسب، وأضف اختبارات ووثائق توضّح نطاقه وحدوده. أعد استخدام العميل المشترك، ولا تضع أسرارًا أو بيانات حقيقية في الكود أو الاختبارات. تُرسل المساهمات إلى المستودع بعد نشر رابطه الرسمي؛ لم يُحدد رابط مستودع عام لهذا المشروع بعد.
-
-## 🗺️ خارطة الطريق | Roadmap
-
-- [x] إنشاء نقطة بداية Python مع CLI وواجهة API اختيارية محمية.
-- [x] إضافة تصنيفات الوكلاء وقالب توسيع ووثائق مساهمة.
-- [x] تنفيذ نظام متعدد الوكلاء لتوليد مسودة كود ومراجعتها وإصلاحها ضمن حد للجولات.
-- [x] إضافة واجهة Streamlit ووضع Demo ووكلاء البحث والأتمتة والمحتوى.
-- [x] إضافة ذاكرة JSON محلية اختيارية مع استرجاع تقارب نصي.
-- [ ] تنفيذ وكلاء إضافيين واختبارات لكل مجال.
-- [ ] دراسة تكاملات أطر الوكلاء ومزودي النماذج، كلٌ على حدة وباختبارات موثقة.
-
-كل البنود غير المكتملة أهداف مستقبلية وليست ميزات متاحة حاليًا.
+اقرأ [سياسة الأمان](SECURITY.md) و[نموذج التهديد](docs/security-model.md). المستودع العام لا ينبغي أن يحتوي أسرارًا مطلقًا؛ أما إعدادات النشر الخاصة فتُحفظ في GitHub Secrets/Environments، وليس في ملفات المستودع الخاص.
 
 ---
 
-<div align="center">بُني ليكون نقطة انطلاق واضحة وآمنة لمجتمع المطورين.</div>
+## English
+
+### Vision
+
+**Universe Center for AI Agents** aims to become a public hub for discovering, evaluating, and safely connecting AI agents. An open-source license will be selected before third-party reuse or redistribution is invited. Target categories include software development, research, automation, content creation, and multi-agent systems.
+
+### Key Features
+
+- **Multi-provider architecture:** a common interface for Google Gemini, OpenAI, Anthropic Claude, and free local models through Ollama. Demo mode is the safe fallback when credentials are absent; API keys never belong in source files.
+- **Practical tools with guardrails:** web search, text/code/PDF analysis, Python execution only inside an isolated rootless Docker container, and read-only GitHub Issues/Pull Requests access. Tools are off by default; code execution fails closed if the required sandbox is unavailable.
+- **Unified API:** FastAPI with automatic Swagger UI at `/docs` for external integrations. Run endpoints require an API key when a real provider or tool is used.
+- **Interactive dashboard:** a Streamlit UI for agent discovery, search and category filters, provider/tool selection, and Python/cURL integration snippets.
+- **Governance and security:** least privilege, human review for changes, credentials stored in protected environment variables or GitHub Secrets, and automated checks before merge.
+
+### Developer Marketplace & 80/20 Revenue Share
+
+The planned marketplace is intended to let developers submit agents for review and publication. The proposed model allocates **80% of eligible usage revenue attributable to an agent to its developer and 20% to the platform**. See the [Draft Developer Agreement](DEVELOPER_AGREEMENT.md) for proposed terms.
+
+> **Important:** the 80/20 split is a proposal for review, not an active payment promise or payout service. Usage metering, billing, settlement, and related compliance workflows are not complete in this version. The program will not become effective until the agreement is approved and the required systems are operational.
+
+### Quick Start
+
+Requires Python 3.12 or newer:
+
+```bash
+git clone https://github.com/mhmdalhndsh597-alt/universe-ai-agents-hub.git
+cd universe-ai-agents-hub
+python -m venv .venv
+# Linux/macOS: source .venv/bin/activate
+# Windows PowerShell: .venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+Copy `.env.example` to `.env` if needed and provide credentials locally or through GitHub Secrets only. Never commit `.env`. Start the API and dashboard in separate terminals:
+
+```bash
+uvicorn api:app --host 127.0.0.1 --port 8000
+streamlit run app.py
+```
+
+Open the Streamlit URL printed by the CLI and visit `http://127.0.0.1:8000/docs` for Swagger UI. Demo Mode is used when provider credentials are missing. Do not expose the server publicly until `HUB_API_KEY`, deployment controls, and access restrictions are configured.
+
+### Contributing
+
+Developers worldwide can review the project and propose improvements to code, documentation, and tests. Please read [CONTRIBUTING.md](CONTRIBUTING.md), then open an Issue or Pull Request with a clear scope and test results. Changes require review; never place credentials or secrets in Issues or Pull Requests. The repository license is still to be selected; public visibility alone does not grant reuse rights.
+
+### Security
+
+See [SECURITY.md](SECURITY.md) and the [security model](docs/security-model.md). Public source must never contain secrets. Private deployment settings belong in protected GitHub Secrets/Environments—not in tracked files, even in a private repository.
+
+## القدرات المنفذة في هذه النسخة | Implemented in this checkout
+
+تشمل هذه النسخة واجهة Streamlit عربية في `app.py` مع اختيار أقسام البرمجة والبحث والأتمتة وصناعة المحتوى والنظام متعدد الوكلاء، واختيار OpenAI أو Gemini أو Demo. عند غياب مفاتيح المزود تستخدم الوكلاء المضافة استجابات Demo محلية معلّمة بوضوح؛ لا يُرسل طلب خارجي في هذا الوضع.
+
+| الملف | الوظيفة وحدودها |
+|---|---|
+| `agents/research/deep_researcher.py` | يقسم الموضوع إلى أسئلة فرعية ويلخص المادة التي يقدمها المستخدم؛ لا يتصفح الويب. |
+| `agents/automation/workflow_automator.py` | يصوغ خطة workflow؛ لا ينفذ إجراءً خارجيًا. |
+| `agents/content_creation/content_architect.py` | ينشئ خطة محتوى ومسودة منشور تقني للمطورين. |
+| `agents/multi_agent_systems/code_review_system.py` | ينسق كتابة الكود ومراجعته ضمن جولات محدودة؛ لا ينفذ الكود أو يحفظه. |
+| `core/llm_provider.py` | موائم OpenAI وGemini مع اختيار تلقائي ووضع Demo. |
+| `core/memory_manager.py` | مخزن JSON محلي اختياري بميزات token hashing لاسترجاع تقارب تقريبي؛ ليس embedding دلاليًا. |
+
+تفعيل الذاكرة المحلية اختياري من الشريط الجانبي، ويتطلب اختيار المستخدم. تُحفظ المهمة والنتيجة في `.data/agent_memory.json`؛ التخزين غير مشفر ومستبعد من Git وDocker، لذلك لا تحفظ بيانات حساسة. يمكن حذف السجلات من الواجهة. تعرض الواجهة مراحل التنفيذ العامة فقط، وليس التفكير الداخلي للنموذج.
+
+لتشغيل الواجهة:
+
+```bash
+streamlit run app.py
+```
+
+إعداد المزود محليًا في `.env` أو عبر Streamlit Secrets: `OPENAI_API_KEY` أو `GEMINI_API_KEY`. يمكن ضبط `LLM_PROVIDER=auto|openai|gemini|demo`. لا تضع الأسرار في المستودع. تعمل اختبارات الوكلاء بعملاء وهميين؛ لا تحتاج مفتاح مزود.
+
+## Implemented capabilities
+
+This checkout includes an Arabic Streamlit dashboard with coding, research, workflow-planning, content-creation, and multi-agent sections, plus OpenAI/Gemini/Demo selection. Newly added agents fall back to clearly labeled local demo responses when provider credentials are absent.
+
+- `agents/research/deep_researcher.py` decomposes a topic and summarizes user-provided material; it does not browse the web.
+- `agents/automation/workflow_automator.py` drafts a workflow and takes no external actions.
+- `agents/content_creation/content_architect.py` creates a content plan and developer-focused post draft.
+- `agents/multi_agent_systems/code_review_system.py` coordinates bounded code drafting/review and never executes or persists generated code.
+- `core/llm_provider.py` adapts OpenAI and Gemini. `core/memory_manager.py` provides opt-in local JSON token-hash similarity search, not semantic embeddings.
+
+Memory is opt-in, stored unencrypted at `.data/agent_memory.json`, excluded from Git and Docker, and can be cleared from the UI. Do not save sensitive information. The dashboard displays public workflow stages, not private model reasoning.
+
