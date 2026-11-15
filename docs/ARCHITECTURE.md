@@ -8,12 +8,18 @@
 - `api.py`: مسارات FastAPI والتحقق من المدخلات ومصادقة Bearer.
 - `agents/base_agent.py`: عميل مشترك يرسل طلبًا واحدًا لمزود النموذج دون حفظ المحادثة.
 - `agents/support_agent.py` و`agents/content_agent.py`: الوكلاء المطبقون حاليًا.
-- `agents/coding/`, `research/`, `automation/`, `content_creation/`, `multi_agent_systems/`: تصنيفات للتوسعة، وليست ادعاءً بأن وكلاء كل مجال جاهزون.
-- `core/`: مكان مقترح لمكونات مشتركة مستقبلية، مثل واجهات أدوات مجردة؛ لا توجد ذاكرة دائمة مفعّلة حاليًا.
+- `agents/coding/`: يتضمن وكيل صياغة الكود ووكيل مراجعته.
+- `agents/multi_agent_systems/code_review_system.py`: ينسق دورة كتابة ثم مراجعة، ويعيد المسودة للمبرمج عند طلب التعديلات ضمن عدد محدود من الجولات. لا ينفذ الكود أو يحفظه أو يرفعه، والاعتماد الآلي لا يغني عن المراجعة البشرية.
+- `agents/research/deep_researcher.py`: يجزئ الموضوع إلى أسئلة ويلخص المادة المقدمة؛ لا يتصفح الويب.
+- `agents/automation/workflow_automator.py`: ينتج خطة workflow ولا ينفذ إجراء خارجي.
+- `agents/content_creation/content_architect.py`: ينشئ خطة محتوى ومسودة منشور تقني.
+- `core/llm_provider.py`: موائم OpenAI/Gemini مع اختيار تلقائي ووضع Demo عند عدم وجود مفاتيح.
+- `core/memory_manager.py`: مخزن متجهات JSON محلي باستخدام ميزات token hashing، دون embeddings خارجية. تشغيله في الواجهة اختياري بموافقة المستخدم، والملف غير مشفر ومستبعد من Git.
+- `app.py`: واجهة Streamlit عربية تُظهر مراحل التنفيذ العامة فقط، لا التفكير الداخلي.
 - `templates/`: قالب بداية لإضافة وكيل جديد.
 
-لا توجد قاعدة بيانات أو جدولة أو تكاملات مراسلة افتراضيًا. أضف هذه القدرات فقط مع إعدادات واضحة واختبارات وتوثيق للاحتفاظ بالبيانات والصلاحيات. عند إتاحة API خارج الجهاز المحلي، راجع TLS، تحديد معدل الطلبات، تدوير الأسرار، والمصادقة المناسبة لعدد المستخدمين.
+لا توجد جدولة أو تكاملات مراسلة افتراضيًا. لا يستخدم وضع Demo مزودًا خارجيًا، وتظل مخرجاته أمثلة توضيحية. الذاكرة لا تحفظ تلقائيًا؛ فعّلها من الواجهة بعد مراجعة تحذير الخصوصية، ولا تخزن بيانات حساسة. عند إتاحة API خارج الجهاز المحلي، راجع TLS، تحديد معدل الطلبات، تدوير الأسرار، والمصادقة المناسبة لعدد المستخدمين.
 
 ## English
 
-The project separates interfaces, agents, and settings. `main.py` provides the CLI/server entry point; `api.py` provides validated, Bearer-protected FastAPI routes; `agents/base_agent.py` shares the provider client; and the support/content agents are currently implemented. The category folders are extension points, not claims of completed agents. `core/` and `templates/` are reserved for shared components and starter patterns. No database, scheduler, messaging integration, or persistent memory is enabled. Public deployments require HTTPS, rate limiting, secret rotation, and appropriate authentication.
+The project provides a Streamlit UI, CLI, and optional FastAPI API. The new research, workflow-planning, and content agents use the shared OpenAI/Gemini adapter and fall back to clearly labeled local demo outputs when credentials are absent. Research does not browse the web, and automation only drafts plans. The code-review team uses bounded revisions and never executes or persists generated source. `MemoryManager` stores opt-in records in a local JSON hashed-token vector store (not semantic embeddings); the file is unencrypted and ignored by Git. The UI exposes general progress, not private chain-of-thought. Public API deployments require HTTPS, rate limiting, secret rotation, and appropriate authentication.

@@ -1,7 +1,7 @@
 """Minimal, safe starter for a new agent; copy into the appropriate agents/ package."""
 
-from config.settings import Settings
 from agents.base_agent import BaseAgent
+from config.settings import Settings
 
 
 class ExampleAgent:

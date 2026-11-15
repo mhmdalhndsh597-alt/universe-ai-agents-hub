@@ -24,6 +24,6 @@ jobs:
       - name: Lint
         run: ruff check .
       - name: Compile
-        run: python -m compileall -q main.py api.py agents config tests
+        run: python -m compileall -q app.py main.py api.py agents config core tests templates
       - name: Test without provider credentials
         run: pytest -q

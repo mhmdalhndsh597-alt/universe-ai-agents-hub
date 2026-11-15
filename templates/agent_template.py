@@ -1,6 +1,5 @@
 """قالب أولي لوكيل ذكاء اصطناعي؛ لا ينفذ اتصالًا بمزود نموذج بعد."""
 
-import os
 
 from dotenv import load_dotenv
 
